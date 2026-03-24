@@ -1,12 +1,14 @@
 '''Module 3: count black and white pixels and compute the percentage of white pixels in a .jpg image and extrapolate points'''
 
 # Code optimized with assistance from Claude (Anthropic, 2026) — claude.ai
-
+from termcolor import colored
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
 import pandas as pd
+import time 
+start = time.time()
 
 filenames = [
     r"images/MASK_SK658 Llobe ch010039.jpg",
@@ -51,7 +53,8 @@ df = pd.DataFrame({
 })
 df.to_csv('Percent_White_Pixels.csv', index=False)
 
-
+elapsed_time = time.time() - start
+print(f'\nRuntime: {elapsed_time:.3f} seconds')
 
 ##############
 # LECTURE 2: UNCOMMENT BELOW
