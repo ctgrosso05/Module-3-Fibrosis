@@ -12,14 +12,14 @@ start = time.time()
 
 filenames = [
     r"images/MASK_SK658 Llobe ch010039.jpg",
-    r"images/MASK_SK658 Llobe ch010021.jpg",
-    r"images/MASK_SK658 Llobe ch010017.jpg",
-    r"images/MASK_SK658 Llobe ch010036.jpg",
-    r"images/MASK_SK658 Llobe ch010019.jpg",
-    r"images/MASK_SK658 Llobe ch010022.jpg",
+    r"images/MASK_SK658 Llobe ch010030.jpg",
+    r"images/MASK_SK658 Llobe ch010171.jpg",
+    r"images/MASK_SK658 Slobe ch010142.jpg",
+    r"images/MASK_SK658 Slobe ch010060.jpg",
+    r"images/MASK_SK658 Slobe ch010098.jpg",
 ]
 
-depths = [15, 30, 45, 55, 60, 80]
+depths = [15, 200, 810, 7100, 8400, 10000]
 
 # Load images and compute pixel counts in one pass
 white_counts, black_counts, white_percents = [], [], []
