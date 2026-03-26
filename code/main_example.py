@@ -67,7 +67,7 @@ x = depths
 y = white_percents
 
 # You can also use 'quadratic', 'cubic', etc.
-i = interp1d(x, y, kind='linear')
+i = interp1d(x, y, kind='quadratic')
 interpolate_point = i(interpolate_depth)
 print(colored(f'The interpolated point is at the x-coordinate {interpolate_depth} and y-coordinate {interpolate_point}.', "green"))
 
