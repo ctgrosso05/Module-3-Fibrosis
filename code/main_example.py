@@ -53,8 +53,6 @@ df = pd.DataFrame({
 })
 df.to_csv('Percent_White_Pixels.csv', index=False)
 
-elapsed_time = time.time() - start
-print(f'\nRuntime: {elapsed_time:.3f} seconds')
 
 
 # LECTURE 2: UNCOMMENT BELOW
@@ -98,3 +96,24 @@ axs[1].scatter(depths_i[len(depths_i)-1], white_percents_i[len(white_percents_i)
 # Adjust layout to prevent overlap
 plt.tight_layout()
 plt.show()
+
+
+#to test accuracy of interpolation, we can load the image at depth = 9000 microns and compute the percentage of white pixels, then compare it to the interpolated point at depth = 9000 microns
+# Load the image at depth = 9000 microns
+filename_9000 = r"images/MASK_SK658 Llobe ch010121.jpg"
+
+# Convert to binary (black and white)
+binary_9000 = cv2.threshold(cv2.imread(filename_9000, 0), 127, 255, cv2.THRESH_BINARY)[1]
+
+# Count white and black pixels
+white_9000 = int(np.sum(binary_9000 == 255))
+black_9000 = int(np.sum(binary_9000 == 0))
+
+# Compute percent white pixels
+percent_white_9000 = 100 * white_9000 / (white_9000 + black_9000)
+
+# Print results
+print(colored("Actual data at depth = 9000 microns:", "yellow"))
+print(f"White pixels: {white_9000}")
+print(f"Black pixels: {black_9000}")
+print(f"Percent white (fibrosis): {percent_white_9000:.2f}%")
